@@ -1,0 +1,11 @@
+<% if @results.empty? %>
+  '<%=h @phrase %>' not found!
+<% else %>
+  '<%=h @phrase %>' found <b><%= @number_match %></b> time(s)!
+
+  <ol>
+    <% for result in @results %>
+      <li><%= link_to h(result['Judul']), info_buku_url(result) %></li>
+    <% end %>
+  </ol>
+<% end %>

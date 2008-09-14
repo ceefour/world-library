@@ -1,0 +1,20 @@
+<div class="article">
+  <h2><span><a>Dosen Borrower</a></span></h2>
+  <table>
+    <tr>
+      <th>IDDosen</th><th>InfoIDBuku</th><th>IDBuku</th><th>Nama</th><th>Judul</th>
+    </tr>
+    <% @borrowers.each do |sirkulasi_dosen| %>
+      <tr>
+        <td> <%= h(sirkulasi_dosen["IDDosen"]) %> </td>
+        <td> <%= h(sirkulasi_dosen["InfoIDBuku"]) %> </td>
+        <td> <%= h(sirkulasi_dosen["IDBuku"]) %> </td>
+        <td> <%= h(sirkulasi_dosen.dosen["Nama"]) rescue ' '%> </td>
+        <td> <%= h(sirkulasi_dosen.info_buku["Judul"]) rescue ' '%> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= will_paginate @borrowers%>
+
+<%= render :partial => "circulations/rightmenu" %>

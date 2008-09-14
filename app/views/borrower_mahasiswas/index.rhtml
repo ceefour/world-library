@@ -1,0 +1,47 @@
+<div class="article">
+  
+<% form_tag({:action => 'index', :controller => "borrower_mahasiswas"}, :method => :get ) do %>
+
+    <fieldset>
+      <legend>Enter Student ID</legend>
+      <table>
+        <tr>
+          <td>IDMahasiswa:</td>
+          <td><%= text_field_tag "IDMahasiswa", params['IDMahasiswa'], :style => 'width: 350px' %></td>
+        </tr>
+      </table>
+      <%= submit_tag "Go" , :class => "submit" %>
+      <input type="Reset" value="Clear"/>
+    </fieldset>
+  
+    <% end %>
+  
+  <fieldset>
+    <a> All INFORMATION LINK TO BOOK BORROWER BY STUDENT</a>
+  </fieldset>
+  
+    <% for sirkulasi_mahasiswa in @borrower_mahasiswa %>
+    <h3> <%= h(sirkulasi_mahasiswa.IDMahasiswa) %></h3>
+    Nama: <%= h(sirkulasi_mahasiswa.mahasiswa.Nama) rescue nil %><br/>
+    InfoIdBuku/IDBuku: <a><%= h(sirkulasi_mahasiswa.InfoIDBuku) %>/<%= h(sirkulasi_mahasiswa.IDBuku) %></a><br/>
+    Judul: <a><%= h(sirkulasi_mahasiswa.info_buku.Judul) rescue nil %> </a><br/>
+    Tanggal Pinjam: <a> <%= h(sirkulasi_mahasiswa["TglPinjam"].strftime('%d %B %Y'))%> </a><br/>
+    Tanggal Harus Kembali: <a> <%= h(sirkulasi_mahasiswa["TglHrsKembali"].strftime('%d %B %Y'))%> </a><br/>
+    <%= link_to 'Show', :action => 'show', :id => sirkulasi_mahasiswa %>
+      <%= link_to 'Edit', :action => 'edit', :id => sirkulasi_mahasiswa %>
+      <%= link_to 'Destroy', borrower_mahasiswa_url(sirkulasi_mahasiswa),
+          :confirm => "Are you sure?" ,
+          :method => :delete %>
+      <%= link_to 'Renew', :action => 'renew', :id => sirkulasi_mahasiswa %>
+                                
+  <% end %>
+  <br/>
+  <br/>
+  <%= link_to 'NEW BORROWER', :action => 'new' %>
+</div>
+
+  <%= will_paginate @borrower_mahasiswa%>
+
+  <%= render :partial => "circulations/rightmenu" %>
+
+

@@ -1,0 +1,14 @@
+<div class="article">
+  <h2><span><a>Editing Research</a></span></h2>
+  
+  <% form_for :info_kti, @info_kti, :url => info_kti_url(@info_kti), :html => {:method => :put} do |f| %>
+      
+                        <%= render :partial => 'form' %> 
+                        <%= submit_tag "Update" %><br />
+
+      <% end %>
+  <br />
+  <%= link_to 'Show', :action => 'show', :id => @info_kti %> |
+  <%= link_to 'Back', :action => 'index' %>
+  
+</div>

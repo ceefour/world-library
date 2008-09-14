@@ -1,0 +1,20 @@
+<div class="article">
+  <h2><span><a>Lectures Information</a></span></h2>
+  <fieldset>
+    <p> IDDosen: <%= h(@info_dosen["IDDosen"]) %> </p>
+    <p> Nama: <%= h(@info_dosen["Nama"]) %></p>
+    <p> Alamat: <%= h(@info_dosen["Alamat"]) %></p>
+    <p> Alamat Email: <%= h(@info_dosen["AlamateMail"]) %></p>
+    <p> Pangkat: <%= h(@info_dosen["Pangkat"]) %></p>
+    <p> Golongan: <%= h(@info_dosen["Golongan"]) %></p>
+    <p> Ruang: <%= h(@info_dosen["Ruang"]) %></p>
+  </fieldset>
+  
+      <%= link_to 'Edit', :action => 'edit', :id => @info_dosen%> |
+      <%= link_to 'Back', :action => 'index' %>
+      
+      <%= render :partial => "circulations/rightmenu" %>
+            
+</div>
+
+

@@ -1,0 +1,26 @@
+<div class="article">
+  <h2><span><a>Students Information</a></span></h2>
+  <fieldset>
+    <p> IDMahasiswa: <%= h(@info_mahasiswa["IDMahasiswa"]) %> </p>
+    <p> Nama: <%= h(@info_mahasiswa["Nama"]) %></p>
+    <p> Tingkat: <%= h(@info_mahasiswa["Tingkat"]) %></p>
+    <p> Alamat: <%= h(@info_mahasiswa["Alamat"]) %></p>
+    <p> Alamat Email: <%= h(@info_mahasiswa["AlamatEmail"]) %></p>
+    <p> Tempat Lahir: <%= h(@info_mahasiswa["TempatLahir"]) %></p>
+    <p> Tanggal Lahir: <%= h(@info_mahasiswa["TglLahir"]) %></p>
+    <p> No Telp Rumah: <%= h(@info_mahasiswa["Ruang"]) %></p>
+    <p> No HP: <%= h(@info_mahasiswa["NoHp"]) %></p>
+    <p> Hobby: <%= h(@info_mahasiswa["Hobby"]) %></p>
+    <p> Tahun: <%= h(@info_mahasiswa["Tahun"]) %></p>
+    <p> Angkatan: <%= h(@info_mahasiswa["Angkatan"]) %></p>
+    <p> Semester: <%= h(@info_mahasiswa["Semester"]) %></p>
+  </fieldset>
+  
+      <%= link_to 'Edit', :action => 'edit', :id => @info_mahasiswa%> |
+      <%= link_to 'Back', :action => 'index' %>
+      
+      <%= render :partial => "circulations/rightmenu" %>
+            
+</div>
+
+

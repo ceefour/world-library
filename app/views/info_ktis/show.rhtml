@@ -1,0 +1,17 @@
+<div class="article">
+  <h2><span><a>Research Show</a></span></h2>
+  <fieldset>
+    <% for column in InfoKTI.content_columns %>
+      <p>
+        <b><%= column.human_name %>:</b> <%=h @info_kti.send(column.name) %>
+      </p>
+    <% end %>
+  </fieldset>
+  
+  
+      <%= link_to 'Edit', :action => 'edit', :id => @info_kti%> |
+      <%= link_to 'Back', :action => 'index' %>
+      
+      <%= render :partial => "info_ktis/reference" %>
+    
+</div>

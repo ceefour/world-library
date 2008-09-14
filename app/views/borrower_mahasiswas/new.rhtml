@@ -1,0 +1,47 @@
+<div class="article">
+  <%= error_messages_for :borrower_mahasiswa %>
+  
+    <% form_for :sirkulasi_mahasiswa, @borrower_mahasiswa, :url => borrower_mahasiswas_url do |f| %>
+    <h2><span>NEW STUDENT BORROWER</span></h2>
+    <fieldset>
+      <legend>Please login your id</legend>
+      <table>
+        <tr>
+          <td>IDMahasiswa:</td>
+          <td><%= f.text_field "IDMahasiswa", :style => 'width: 350px' %></td>
+        </tr>
+        <tr>
+          <td>InfoIDBuku:</td>
+          <td><%= f.text_field "InfoIDBuku", :style => 'width: 350px' %></td>
+        </tr>
+        <tr>
+          <td>IDBuku:</td>
+          <td><%= f.text_field "IDBuku", :style => 'width: 350px' %></td>
+        </tr>
+      </table>
+      <%= submit_tag "New" , :class => "submit" %>
+    </fieldset>
+  <% end %>
+  
+  <fieldset>
+    <% @borrowers.each do |sirkulasi_mahasiswa| %>
+      <h3> <%= h(sirkulasi_mahasiswa["IDMahasiswa"]) %></h3>
+      <a> <%= h(sirkulasi_mahasiswa.mahasiswa["Nama"]) rescue nil %></a><br/>
+      <a> <%= h(sirkulasi_mahasiswa["InfoIDBuku"]) %>/<%= h(sirkulasi_mahasiswa["IDBuku"]) %> </a><br/>
+      <a> <%= h(sirkulasi_mahasiswa.info_buku["Judul"]) rescue nil %> </a><br/>
+      <a> Due Date: </a>
+      Tanggal Pinjam: <a> <%= h(sirkulasi_mahasiswa["TglPinjam"].strftime('%d %b %Y'))%> </a><br/>
+      Tangal Kembali: <a> <%= h(sirkulasi_mahasiswa["TglHrsKembali"].strftime('%d %b %Y'))%> </a>
+    
+<% end %>
+
+  </fieldset>
+  
+     <%= will_paginate @borrowers%>
+</div>
+
+<%= render :partial => "circulations/rightmenu" %>
+
+<%= link_to 'halo yeah baby', halo_borrower_mahasiswas_url %> <br />
+
+<%= link_to 'ini yuhu untuk satu member', yuhu_borrower_mahasiswa_url(879) %> <br />

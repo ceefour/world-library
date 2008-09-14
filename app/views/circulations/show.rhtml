@@ -1,0 +1,31 @@
+<!-- Article -->
+<div class="article">
+  <h2><span><a>CIRCULATION</a></span></h2>
+  <table width="485" >
+    <tr>
+      <td width="10%" ><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+      <td>           
+        <h3><%= link_to_function("Visit", visual_effect(:grow, "growvisit")) %></h3>
+        <ul id="growvisit" style="display:none">
+          <li><%= link_to("Lecture", dosen_circulation_url) %></li>
+          <li><%= link_to("Student", mahasiswa_circulation_url) %></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+      <td>  
+        <h3><%= link_to_function("Borrow", visual_effect(:grow, "growborrow")) %></h3>
+        <ul id="growborrow" style="display:none">
+          <li><%= link_to("Lecture", dosen_borrower_url) %></li>
+          <li><%= link_to("Student", mahasiswa_borrower_url) %></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<%= render :partial => "circulations/rightmenu" %>
+
+

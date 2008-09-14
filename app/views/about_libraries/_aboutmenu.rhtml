@@ -1,0 +1,18 @@
+<% content_for :sidebar do %>
+  <h3><span>Library links</span></h3>
+  <ul id="category">
+    
+    <li><a href="#">History</a></li>
+    <li><%= link_to_function("Staff", visual_effect(:slide_down, "dropdownStaff")) %></li>
+    <ul id="dropdownStaff" style="display:none">
+      <li><a href="<%= eny_staff_url %>">Eny Sendra, S.Kep.Ners</a></li>
+      <li><a href="<%= pipit_staff_url %>">Pipit Haryadi, S.Sos</a></li>
+      <li><a href="<%= deny_staff_url %>">Deny Isharyuni</a></li>
+      <li><a href="<%= anung_staff_url %>">Moch. Nurohman</a></li>
+    </ul>
+    <li><a href="#">Opening Hours</a></li>
+    <li><a href="#">Rules</a></li>
+    <li><a href="#">Time Scedules</a></li>
+  </ul>
+
+<% end %>

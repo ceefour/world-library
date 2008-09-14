@@ -1,0 +1,60 @@
+<div class="article">
+  <%= error_messages_for :borrower_dosen %>
+  <% form_for :sirkulasi_dosen, @borrower_dosen, :url => return_submit_borrower_dosen_url(@borrower_dosen) do |f| %>
+    <h2><span>Return TEACHER BORROWER</span></h2>
+    <fieldset>
+      <legend>Please login your id</legend>
+      <table>
+        <tr>
+          <td width="150">IDDosen:</td>
+          <td width="350"><%= h(@borrower_dosen['IDDosen'])%></td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td><%= h(@borrower_dosen.dosen['Nama']) %></td>
+        </tr>
+        <tr>
+          <td>InfoIDBuku:</td>
+          <td><%= h(@borrower_dosen['InfoIDBuku']) %></td>
+        </tr>
+        <tr>
+          <td>IDBuku:</td>
+          <td><%= h(@borrower_dosen['IDBuku']) %></td>
+        </tr>
+        <tr>
+          <td>Title:</td>
+          <td><%= h(@borrower_dosen.info_buku['Judul']) %></td>
+        </tr>
+        <tr>
+          <td>Date Borrow:</td>
+          <td><%= h(@borrower_dosen['TglPinjam'].strftime('%d %B %Y'))%> </td>
+        </tr>
+        <tr>
+          <td>Date Should Return:</td>
+          <td><%= h(@borrower_dosen['TglHrsKembali'].strftime('%d %B %Y'))%></td>
+        </tr>
+        <tr>
+          <td>Date returned:</td>
+          <td><%= @date_returned.strftime('%d %B %Y') %></td>
+        </tr>
+        <tr>
+          <td>Difference days:</td>
+          <td><%= @difference_days %> days</td>
+        </tr>
+        <tr>
+          <td>Holiday days:</td>
+          <td><%= @holiday_days %> days</td>
+        </tr>
+        <tr>
+          <td>Denda/Fine:</td>
+          <td><%= @late_days %> days</td>
+        </tr>
+        <tr>
+          <td>Total Fine:</td>
+          <td><%= number_to_currency(@total, :unit => 'Rp', :separator => ',', :delimiter => '.') %></td>
+        </tr>
+      </table>
+      <%= submit_tag "Return Submit" , :class => "submit" %>
+    </fieldset>
+  <% end %>
+</div>

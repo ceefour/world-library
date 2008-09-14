@@ -1,0 +1,17 @@
+<div class="article">
+  <h2><span><a>LIBRARY VISITORS SHOW</a></span></h2>
+  <fieldset>
+    <% for column in Kunjungan.content_columns %>
+      <p>
+        <b><%= column.human_name %>:</b> <%=h @library_visitor.send(column.name) %>
+      </p>
+    <% end %>
+  </fieldset>
+  
+  
+      <%= link_to 'Edit', :action => 'edit', :id => @library_visitor%> |
+      <%= link_to 'Back', :action => 'index' %>
+      
+      <%= render :partial => "circulations/rightmenu" %>
+    
+</div>

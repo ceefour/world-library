@@ -1,0 +1,47 @@
+<% content_for :sidebar do %>
+  <h3><a>Circulation Links</a></h3>
+
+  <h3><a><span>Visitor Information</span></a></h3>
+  <ul id="category">
+    <li><%= link_to("New Visitor", new_library_visitor_url) %></li>
+    <li><%= link_to_function("Teacher Informations", visual_effect(:slide_down, "dropdowncurrentteachervisit")) %></li>
+    <ul id="dropdowncurrentteachervisit" style="display:none">
+      <li><%= link_to("Current Visitors", currentdosen_circulation_url) %></li>
+      <li><%= link_to("All Visitor", dosen_circulation_url) %></li>
+    </ul>
+    <li><%= link_to_function("Student Informations", visual_effect(:slide_down, "dropdowncurrenstudentvisit")) %></li>
+    <ul id="dropdowncurrenstudentvisit" style="display:none">
+      <li><%= link_to("Current Visitors", currentmahasiswa_circulation_url) %></li>
+      <li><%= link_to("All Visitor", mahasiswa_circulation_url) %></li>
+    </ul>
+  </ul>
+
+  <h3><a>Borrower Informations</a></h3>
+  <ul id="category">
+    <li><%= link_to("Students", borrower_mahasiswas_url) %></li>
+    <li><%= link_to("Teachers", borrower_dosens_url) %></li>
+    <li><%= link_to("New Borrower - Teacher", new_borrower_dosen_url) %></li>
+    <li><%= link_to("New Borrower - Student", new_borrower_mahasiswa_url) %></li>
+    <li><%= link_to_function("Teacher borrowers", visual_effect(:slide_down, "dropdowncurrentteacherborrow")) %></li>
+    <ul id="dropdowncurrentteacherborrow" style="display:none">
+      <li><%= link_to("Current Borrowers", currentdosen_borrower_url) %></li>
+      <li><%= link_to("All Borrower", dosen_borrower_url) %></li>
+    </ul>
+    <li><%= link_to_function("Student borrowers", visual_effect(:slide_down, "dropdowncurrentstudentborrow")) %></li>
+    <ul id="dropdowncurrentstudentborrow" style="display:none">
+      <li><%= link_to("Current Borrowers", currentmahasiswa_borrower_url) %></li>
+      <li><%= link_to("All Borrower", mahasiswa_borrower_url) %></li>
+    </ul>
+  </ul>
+
+  <h3><a>Entry Data</a></h3>
+  <ul id="category">
+    <li><%= link_to_function("Students and Teachers Entry", visual_effect(:toggle_slide, "toggleslideentry")) %></li>
+    <ul id="toggleslideentry" style="display:none">
+      <li>Student Entry </li>
+      <li>Teachers Entry </li>
+    </ul>
+  </ul>
+<% end %>
+
+

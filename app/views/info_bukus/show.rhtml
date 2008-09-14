@@ -1,0 +1,20 @@
+<div class="article">
+  <h2><span><a>Book Show</a></span></h2>
+  <fieldset>
+    <%# for column in InfoBuku.columns %>
+        <% for column in InfoBuku.content_columns %>
+              
+                        <% next if column.name == "GambarBuku"%>
+      <p>
+        <b><%= column.human_name %>:</b> <%=h @info_buku.send(column.name) %>
+      </p>
+    <% end %>
+    <%= image_tag @info_buku.image_filename rescue 'tidak ada gambar'%> 
+  </fieldset>
+  
+  
+      <%= link_to 'Edit', :action => 'edit', :id => @info_buku%> |
+      <%= link_to 'Back', :action => 'index' %>
+      <%#= link_to_function 'Back2', 'history.go(-1);' %>
+</div>
+

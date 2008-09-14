@@ -1,0 +1,27 @@
+<div class="article">
+  <h2><span><a>Book Collections</a></span></h2>
+  
+    <%# if @results.nil? %>
+
+   <% if @results.blank? %>
+    <p>Data is Null.</p>
+  
+    <% else %>
+    
+    <table>
+      <tr>
+        <th>Judul</th>
+      </tr>
+      <% @results.each do |info_buku| %>
+        <tr>
+          <td> <%= link_to( h(info_buku["Judul"]), info_buku_url(info_buku)) %> </td>
+        </tr>
+      <% end %>
+    </table>
+  
+        <%= will_paginate @results%>
+      
+  <% end %>
+  
+</div>
+

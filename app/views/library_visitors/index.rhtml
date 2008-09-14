@@ -1,0 +1,28 @@
+<div class="article">
+<h2><span><a>LIBRARY VISITOR LIST</a></span></h2>
+<fieldset>
+<table style="width: 475" >
+<% for kunjungan in @library_visitor %>
+  <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>" >
+    
+    <td width="100px" ><span><%= h(kunjungan.IDMahasiswa) %></span></td>
+    <td width="100px" ><%= h(kunjungan.IDDosen) %></td>
+    <td width="150px" ><%= h(kunjungan.TglKunjungan)%></td>
+    <td width="125" align="center" >
+      <%= link_to 'Show', :action => 'show', :id => kunjungan %>
+      <%= link_to 'Edit', :action => 'edit', :id => kunjungan %>
+      <%= link_to 'Destroy', library_visitor_url(kunjungan),
+                                                :confirm => "Are you sure?" ,
+                                                :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New visitor', :action => 'new' %>
+</fieldset>
+</div>
+
+<%= will_paginate @library_visitor%>
+
+<%= render :partial => "circulations/rightmenu" %>
+

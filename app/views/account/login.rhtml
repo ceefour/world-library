@@ -1,0 +1,22 @@
+<div class="article">
+  <% form_tag do -%>
+    <p><label for="login">Login :</label><br/>
+    <%= text_field_tag 'login' %></p>
+  
+    <p><label for="password">Password :</label><br/>
+    <%= password_field_tag 'password' %></p> 
+  
+    <!--
+    Uncomment this if you want this functionality
+  <p><label for="remember_me">Remember me:</label>
+  <%= check_box_tag 'remember_me' %></p>
+    -->
+  
+    <p><%= submit_tag 'Log in' %></p>
+  <% end -%>
+  
+  Don't have a Login & Password?
+  Signing up is easy <br />
+  
+  <h3><%= link_to 'Signup', :action => 'signup' %></h3>
+</div>

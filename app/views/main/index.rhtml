@@ -1,0 +1,59 @@
+
+<div class="article">
+  <h2><span><a>LIBRARY INFORMATIONS</a></span></h2>
+  
+  <h3>Welcome to our library</h3>
+  <span class="date">It is now: <span id="jamdinding">loading...</span> </span>
+  <%= periodically_call_remote :frequency => 1, :url => {:controller => 'main', :action => 'time'}, 
+            :update => 'jamdinding' %>
+  
+  <fieldset>
+    <legend></legend>
+    <table width="470" >
+      <tr>
+        <td width="15%" ><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>           
+          <h3><%= link_to("Catalogue", catalogues_url) %></h3>       
+        </td>
+      </tr>
+      <tr> 
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to("Circulation", circulation_url) %></h3> 
+        </td>
+      </tr>
+      <tr> 
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to("Lectures", info_dosens_url) %></h3> 
+        </td>
+      </tr>
+      <tr> 
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to("Library", about_url) %></h3> 
+        </td>
+      </tr>
+      <tr>
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to("Students", info_mahasiswas_url) %></h3> 
+        </td>
+      </tr>
+      <tr> 
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to ("Research", info_ktis_url) %></h3> 
+        </td>
+      </tr>
+      <tr> 
+        <td><a><input type="image" src="/images/design/ico_links.gif"></a></td>
+        <td>
+          <h3><%= link_to ("Collections", info_bukus_url) %></h3> 
+        </td>
+      </tr>
+    </table> 
+  </fieldset>
+</div>
+
+

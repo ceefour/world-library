@@ -1,0 +1,35 @@
+<div class="article">
+  <% form_for :kunjungan, @library_visitor, :url => library_visitors_url do |f| %>
+    <h2><span>NEW LIBRARY VISITOR</span></h2>
+    <fieldset>
+      <legend>Please login your id</legend>
+      <table>
+        <tr>
+          <td>ID:</td>
+          <td><%= f.text_field :id_barcode, :style => 'width: 300px' %></td>
+        </tr>
+      </table>
+      <%= submit_tag "New" , :class => "submit" %>
+    </fieldset>
+  <% end %>
+  
+  <fieldset>
+    <table>
+      <tr>
+        <th>IDDosen</th><th>IDMahasiswa</th><th>Tgl Kunjungan</th><th>Nama Dosen</th><th>Nama Mahasiswa</th>
+      </tr>
+      <% @kunjungans.each do |kunjungan| %>
+        <tr>
+          <td> <%= h(kunjungan["IDDosen"]) %> </td>
+          <td> <%= h(kunjungan["IDMahasiswa"]) %> </td>
+          <td> <%= h(kunjungan["TglKunjungan"]) %> </td>
+          <td> <%= h(kunjungan.dosen["Nama"]) rescue ''%> </td>
+          <td> <%= h(kunjungan.mahasiswa["Nama"]) rescue ''%> </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= will_paginate @kunjungans%>
+  </fieldset>
+</div>
+
+<%= render :partial => "circulations/rightmenu" %>

@@ -1,0 +1,26 @@
+<div class="article">
+  <h2><span><a>Books Listing</a></span></h2>
+  <fieldset>
+    <table style="width: 475" >
+      <% for info_buku in @info_buku %>
+        <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>" >
+        
+          <td width="50px" ><span><%= h(info_buku.InfoIDBuku) %></span></td>
+          <td width="275" ><%= h(truncate(info_buku.Judul, 80)) %></td>
+          <td width="125" align="center" >
+            <%= link_to 'Show', :action => 'show', :id => info_buku %>
+            <%= link_to 'Edit', :action => 'edit', :id => info_buku %>
+            <%= link_to 'Destroy', info_buku_url(info_buku),
+                                                      :confirm => "Are you sure?" ,
+                                                      :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'New Book', :action => 'new' %>
+  </fieldset>
+</div>
+
+<%= will_paginate @info_buku%>
+
+

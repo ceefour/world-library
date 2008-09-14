@@ -1,0 +1,37 @@
+<fieldset style="width: 475px">
+  <legend></legend>
+  <table>
+    <tr >
+      <td>IDDosen:</td>
+      <td><%= text_field 'info_dosen', 'IDDosen', :style => 'width: 380px' %></td>
+    </tr>
+    <tr>
+      <td>Nama:</td>
+      <td><%= text_field 'info_dosen', 'Nama', :style => "width: 380px" %></td>
+    </tr>
+    <tr>
+      <td>Pangkat:</td>
+      <td><%= text_field 'info_dosen', 'Pangkat', :style => "width: 380px" %></td>
+    </tr>
+    <tr>
+      <td>Golongan:</td>
+      <td><%= text_field 'info_dosen', 'Golongan', :style => "width: 380px" %></td>
+    </tr>
+    <tr>
+      <td>Ruang:</td>
+      <td><%= text_field 'info_dosen', 'Ruang', :style => 'width: 380px' %></td>
+    </tr>
+    <tr>
+      <td>Alamat:</td>
+      <td><%= text_area 'info_dosen', 'Alamat', :style => "width: 380px ; height: 50px" %></td>
+    </tr>
+    <tr>
+      <td>AlamateMail:</td>
+      <td><%= text_field 'info_dosen', 'AlamateMail', :style => "width: 380px" %></td>
+    </tr>
+    
+  </table>
+</fieldset>
+
+<%= render :partial => "circulations/rightmenu" %>
+

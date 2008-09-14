@@ -1,0 +1,20 @@
+<div class="article">
+  <h2><span><a>Mahasiswa Borrower</a></span></h2>
+  <table>
+    <tr>
+      <th>IDMahasiswa</th><th>InfoIDBuku</th><th>IDBuku</th><th>NamaMahasiswa</th><th>Judul</th>
+    </tr>
+    <% @borrowers.each do |sirkulasi_mahasiswa| %>
+      <tr>
+        <td> <%= h(sirkulasi_mahasiswa["IDMahasiswa"]) %> </td>
+        <td> <%= h(sirkulasi_mahasiswa["InfoIDBuku"]) %> </td>
+        <td> <%= h(sirkulasi_mahasiswa["IDBuku"]) %> </td>
+        <td> <%= h(sirkulasi_mahasiswa.mahasiswa["Nama"]) rescue 'Data is empty' %> </td>
+        <td> <%= h(sirkulasi_mahasiswa.info_buku["Judul"]) rescue 'Data is empty' %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= will_paginate @borrowers%>
+
+<%= render :partial => "circulations/rightmenu" %>

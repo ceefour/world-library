@@ -1,0 +1,13 @@
+<% content_for :sidebar do %>
+  <h3><span>Catalogue Information</span></h3>
+  <ul id="category">
+    <li><%= link_to_function("How to use basic catalogue", visual_effect(:toggle_appear, "dropdowncatalogue")) %></li>
+    <ul id="dropdowncatalogue" style="display:none">
+      <li>Please type a word you need</li>
+      <li>Select coloumn search by "Subject", "Title" or "ISBN"</li>
+      <li>Click go button to get the result</li> 
+      <li>Click clear button to empty chart</li>
+    </ul>
+  </ul>
+
+<% end %>

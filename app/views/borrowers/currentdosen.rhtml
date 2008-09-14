@@ -1,0 +1,30 @@
+<div class="article">
+  <h2><span><a href="#">Current Dosen Borrower</a></span></h2>
+  
+  <% if @borrowers.nil? %>
+    <p>Data is Null.</p>
+  <% else %>
+  
+    <fieldset>
+      <% @borrowers.each do |sirkulasi_dosen| %>
+        <h3> <%= h(sirkulasi_dosen["IDDosen"]) %> </h3>
+        <%= h(sirkulasi_dosen.dosen["Nama"]) rescue ' ' %> <br/>
+        <%= h(sirkulasi_dosen["InfoIDBuku"]) %>/<%= h(sirkulasi_dosen["IDBuku"]) %> <br/>
+        <%= h(sirkulasi_dosen.info_buku["Judul"]) rescue nil %> <br/>
+        Due Date: 
+        <%= h(sirkulasi_dosen["TglPinjam"].strftime('%d %b %Y'))%>
+        -
+        <%= h(sirkulasi_dosen["TglHrsKembali"].strftime('%d %b %Y'))%> 
+        <td>Belum: [<%= h(sirkulasi_dosen.Belum) %>] / Kembali: [<%= h(sirkulasi_dosen.Kembali) %>]</td>
+        <br/>
+        <br/>
+      <% end %>
+    </fieldset>
+  
+<% end %>
+
+<%= will_paginate @borrowers%>
+</div>
+
+<%= render :partial => "circulations/rightmenu" %>
+

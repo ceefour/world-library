@@ -1,0 +1,27 @@
+<!-- Article -->
+<div class="article">
+  <h2><span><a>LIBRARY</a></span></h2>
+  <p class="info noprint">
+    <span class="date">It is now: <span id="jamdinding">loading...</span> </span>
+    <%= periodically_call_remote :frequency => 1, :url => {:controller => 'about_libraries', :action => 'time'}, 
+      :update => 'jamdinding' %>
+    
+    <span class="noscreen">,</span>
+    <span class="cat"><a href="#">Category</a></span>
+    <span class="noscreen">,</span> 
+    <span class="comments"><a href="#">Comments</a></span> 
+  </p>
+  <p>Library is a place, and this place is a part of the building that inside of this building there are many things for example: books, journals, magazines, and others that will increase the library. The libabry is also a place with many information to get an easy for every user</p>
+  <p class="btn-more box noprint"><strong><a href="#">Continue</a></strong></p>
+  
+<p id="counteryuk">...</p>
+<%= periodically_call_remote :frequency => 1, :url => {:controller => 'about_libraries', :action => 'counter'},
+  :update => 'counteryuk' %>
+
+</div>
+<!-- /article -->
+<hr class="noscreen" />
+
+<%= render :partial => "about_libraries/aboutmenu" %>
+
+

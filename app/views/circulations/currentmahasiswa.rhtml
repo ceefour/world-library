@@ -1,0 +1,28 @@
+<div class="article">
+  <h2><span><a>Mahasiswa Circulation</a></span></h2>
+  
+  <% if @kunjungans.nil? %>
+      <p>Data is Null.</p>
+    <% else %>
+  
+    <table>
+      <tr>
+        <th>IDMahasiswa</th><th>Tgl Kunjungan</th><th>Nama</th>
+      </tr>
+      <% @kunjungans.each do |kunjungan| %>
+        <tr>
+          <td> <%= h(kunjungan["IDMahasiswa"]) %> </td>
+          <td> <%= h(kunjungan["TglKunjungan"]) %> </td>
+          <td> <%= h(kunjungan.mahasiswa["Nama"]) rescue 'Data is empty' %>  </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= will_paginate @kunjungans%>
+  
+  <% end %>  
+  
+</div>
+
+
+<%= render :partial => "circulations/rightmenu" %>
+

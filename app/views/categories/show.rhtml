@@ -1,0 +1,14 @@
+<div class="article">
+  <h2><span><%= h(@category_list[params[:id].to_s])%></span></h2>
+  <table>
+    <tr>
+      <th>Judul</th>
+    </tr>
+    <% @info_bukus.each do |info_buku| %>
+      <tr>
+        <td> <%= link_to( h(info_buku["Judul"]), info_buku_url(info_buku)) %> </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<%= will_paginate @info_bukus %>

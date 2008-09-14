@@ -1,0 +1,23 @@
+<div class="article">
+  <h2><span><a>Student Informations</a></span></h2>
+  <table>
+    <% for info_mahasiswa in @info_mahasiswa %>
+      <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>" >
+        <td width="50" ><span><%= h(info_mahasiswa.IDMahasiswa) %></span></td>
+        <td width="275" ><%= h(truncate(info_mahasiswa.Nama, 80)) %></td>
+        <td width="125" align="center" >
+          <%= link_to 'Show', :action => 'show', :id => info_mahasiswa %>
+          <%= link_to 'Edit', :action => 'edit', :id => info_mahasiswa %>
+          <%= link_to 'Destroy', info_mahasiswa_url(info_mahasiswa),
+                                                                        :confirm => "Are you sure?" ,
+                                                                        :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'New Student', :action => 'new' %>
+</div>
+
+<%= will_paginate @info_mahasiswa%>
+
+<%= render :partial => "circulations/rightmenu" %>

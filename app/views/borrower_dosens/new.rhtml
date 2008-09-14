@@ -1,0 +1,47 @@
+<div class="article">
+<%= error_messages_for :borrower_dosen %>
+<% form_for :sirkulasi_dosen, @borrower_dosen, :url => borrower_dosens_url do |f| %>
+  <h2><span>NEW TEACHER BORROWER</span></h2>
+  <fieldset>
+    <legend>Please login your id</legend>
+    <table>
+      <tr>
+        <td>IDDosen:</td>
+        <td><%= f.text_field "IDDosen", :style => 'width: 350px' %></td>
+      </tr>
+      <tr>
+        <td>InfoIDBuku:</td>
+        <td><%= f.text_field "InfoIDBuku", :style => 'width: 350px' %></td>
+      </tr>
+      <tr>
+        <td>IDBuku:</td>
+        <td><%= f.text_field "IDBuku", :style => 'width: 350px' %></td>
+      </tr>
+    </table>
+    <%= submit_tag "New" , :class => "submit" %>
+  </fieldset>
+<% end %>
+
+<fieldset>
+<% @borrowers.each do |sirkulasi_dosen| %>
+  <tr>
+    <h3> <%= h(sirkulasi_dosen["IDDosen"]) %> </h3>
+    <td> <%= h(sirkulasi_dosen.dosen["Nama"]) rescue nil %> </td><br/>
+    <td> <%= h(sirkulasi_dosen["InfoIDBuku"]) %>/<%= h(sirkulasi_dosen["IDBuku"]) %> </td><br/>
+    <td> <%= h(sirkulasi_dosen.info_buku["Judul"]) rescue nil %> </td><br/>
+    <td> Due Date: </td>
+    <td> <%= h(sirkulasi_dosen["TglPinjam"].strftime('%d %b %Y %H:%M:%S'))%> </td>
+    -
+    <td> <%= h(sirkulasi_dosen["TglHrsKembali"].strftime('%d %b %Y %H:%M:%S'))%> </td>
+    <h3>[Belum:] [<%= h(sirkulasi_dosen.Belum) %>] / [Kembali:] [<%= h(sirkulasi_dosen.Kembali) %>]</h3>
+    <%= link_to 'Renew', renew_borrower_dosen_url(sirkulasi_dosen) %>
+    <%= link_to 'Return', return_form_borrower_dosen_url(sirkulasi_dosen) %>
+  </tr>
+<% end %>
+
+</fieldset>
+
+<%= will_paginate @borrowers%>
+</div>
+
+<%= render :partial => "circulations/rightmenu" %>

@@ -1,0 +1,23 @@
+<div class="article">
+  <h2><span><a>Lecture Informations</a></span></h2>
+  <table>
+    <% for info_dosen in @info_dosen %>
+      <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>" >
+        <td width="50px" ><span><%= h(info_dosen.IDDosen) %></span></td>
+        <td width="275" ><%= h(truncate(info_dosen.Nama, 80)) %></td>
+        <td width="125" align="center" >
+          <%= link_to 'Show', :action => 'show', :id => info_dosen %>
+          <%= link_to 'Edit', :action => 'edit', :id => info_dosen %>
+          <%= link_to 'Destroy', info_dosen_url(info_dosen),
+                                                                :confirm => "Are you sure?" ,
+                                                                :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'New Lecture', :action => 'new' %>
+</div>
+
+<%= will_paginate @info_dosen%>
+
+<%= render :partial => "circulations/rightmenu" %>

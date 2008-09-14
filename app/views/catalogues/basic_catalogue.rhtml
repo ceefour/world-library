@@ -1,0 +1,25 @@
+<div class="article">
+  
+  <% form_tag({:action => 'search2', :controller => "books"}, :method => :get ) do %>
+  
+    <h2><span>BOOK CATALOGUE</span></h2>
+    <fieldset>
+    <legend>Basic Search of Catalogue</legend>
+    <table>
+    <tr>
+    <td>Type word or phrase:</td>
+    <td><%= text_field_tag :name, "", :style => 'width: 300px' %></td>
+    </tr>
+    <tr>
+    <td>Search by:</td>
+    <td><%= select_tag "selectcatalogue", options_for_select([['..' , ' '], ['Title','Judul'], ['Author','SemuaPengarang'], 
+    ['ISBN','ISBN'], ['Category','Kategori']]), :style => 'width: 300px' %></td>
+    </tr>
+    </table>
+    <%= submit_tag "Go" , :class => "submit" %>
+    <input type="Reset" value="Clear"/>
+    </fieldset>
+    <% end %>
+ </div>
+
+<%= render :partial => "books/catalogue_informations" %>

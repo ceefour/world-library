@@ -1,0 +1,13 @@
+<div class="article">
+  <h2><span><a>New Student</a></span></h2>
+  <fieldset style="width: 475px">
+    <%= error_messages_for 'info_mahasiswa'%>
+  </fieldset>
+  <% form_for :info_mahasiswa, @info_mahasiswa, :url => info_mahasiswas_url do |f| %>
+                        <%= render :partial => 'form' %>
+                        <%= submit_tag "Create" %>
+<% end %>
+
+<%= link_to 'Back', :action => 'index' %>
+</div>
+

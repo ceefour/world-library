@@ -1,0 +1,26 @@
+<div class="article">
+  <h2><span><a>Research Listing</a></span></h2>
+  <fieldset>
+    <table style="width: 475" >
+      <% for info_kti in @info_kti %>
+        <tr valign="top" class="<%= cycle('list-line-odd', 'list-line-even') %>" >
+        
+          <td width="50px" ><span><%= h(info_kti.InfoIDKTI) %></span></td>
+          <td width="275" ><%= h(truncate(info_kti.Judul, 80)) %></td>
+          <td width="125" align="center" >
+            <%= link_to 'Show', :action => 'show', :id => info_kti %>
+            <%= link_to 'Edit', :action => 'edit', :id => info_kti %>
+            <%= link_to 'Destroy', info_kti_url(info_kti),
+                                                    :confirm => "Are you sure?" ,
+                                                    :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to 'New Research', :action => 'new' %>
+  </fieldset>
+</div>
+
+<%= will_paginate @info_kti%>
+
+<%= render :partial => "info_ktis/reference" %>
